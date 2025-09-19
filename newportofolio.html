@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jitendra Gaherwar | Professional Data Scientist Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Custom CSS for Professional UI/UX -->
+    <style>
+        :root {
+            --background: #0f172a; /* Slate 900 */
+            --primary: #f8fafc; /* Slate 50 */
+            --secondary: #94a3b8; /* Slate 400 */
+            --accent: #22d3ee; /* Cyan 400 */
+            --surface: #1e293b; /* Slate 800 */
+            --border: #334155; /* Slate 700 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar .nav-link {
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover, .navbar .nav-link.active {
+            color: var(--accent);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary) !important;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+        
+        .hero .intro-text {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 800;
+        }
+        
+        .hero h2 {
+            font-size: clamp(30px, 6vw, 60px);
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .profile-img-container {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--border);
+            filter: grayscale(80%);
+            transition: filter 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            filter: grayscale(0%);
+        }
+
+        .btn-main {
+            background-color: var(--accent);
+            color: var(--background);
+            border: 2px solid var(--accent);
+            padding: 14px 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-main:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(34, 211, 238, 0.2);
+        }
+        
+        section {
+            padding: 120px 0;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .card-custom {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.7);
+        }
+        
+        .project-card .card-body {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .project-links a {
+            color: var(--secondary);
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .project-links a:hover {
+            color: var(--accent);
+        }
+
+        .tech-stack-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tech-stack-list li {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+        
+        /* Timeline */
+        .timeline-item {
+            padding: 3rem 2rem;
+            margin-left: 2rem;
+            border-left: 2px solid var(--border);
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 3rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 3px solid var(--background);
+        }
+        
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .social-icons a {
+            color: var(--secondary);
+            margin: 0 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Scroll Animations */
+        [data-aos] {
+            opacity: 0;
+            transition-property: transform, opacity;
+        }
+        
+        @media (max-width: 768px) {
+            .hero { text-align: center; }
+            .profile-img-container { margin-bottom: 2rem; }
+            .section-heading { text-align: center; }
+            .section-heading::after { left: 50%; transform: translateX(-50%); }
+        }
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="100">
+
+    <!-- Navigation -->
+    <nav id="navbar-main" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jitendra G.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="row align-items-center justify-content-center gy-5">
+                <div class="col-md-7" data-aos="fade-right">
+                    <p class="intro-text">Hello, my name is</p>
+                    <h1>Jitendra Gaherwar.</h1>
+                    <h2 class="mb-4">I transform data into insights.</h2>
+                    <p class="lead mb-5">I am a passionate B.Tech IT student specializing in data science. I leverage machine learning, NLP, and data visualization to uncover actionable intelligence and build innovative, data-driven solutions.</p>
+                    <a href="#contact" class="btn btn-main">Let's Connect</a>
+                </div>
+                 <div class="col-md-5 text-center" data-aos="fade-left" data-aos-delay="200">
+                     <div class="profile-img-container">
+                        <img src="PROFILE pic.png" alt="Jitendra Gaherwar" class="profile-img">
+                     </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Me -->
+        <section id="about">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <h2 class="section-heading">About Me</h2>
+                    <p>I am a dedicated and aspiring Data Scientist currently pursuing a B.Tech in Information Technology from Priyadarshini College of Engineering. My core interest lies in leveraging data to drive decision-making and create innovative solutions. With a strong foundation in Python, SQL, and various data science libraries, I am adept at transforming complex datasets into clear and actionable insights.</p>
+                    <p class="mb-5">I have hands-on experience in machine learning, natural language processing (NLP), and creating compelling data visualizations with tools like Tableau and Power BI. I am actively seeking a paid internship where I can apply my skills to real-world challenges and contribute to impactful projects.</p>
+
+                    <h4 class="mb-3">Core Technologies:</h4>
+                    <ul class="tech-stack-list">
+                        <li>Python</li><li>SQL</li><li>Deep Learning</li><li>NLP</li><li>Pandas</li><li>Numpy</li>
+                        <li>Scikit-Learn</li><li>Matplotlib</li><li>Seaborn</li><li>Tableau</li><li>Power BI</li><li>Git & GitHub</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <h2 class="section-heading">Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" data-aos="fade-up">
+                            <h4>Data Scientist Intern</h4>
+                            <p class="text-accent mb-1">Unified Mentors | Remote</p>
+                            <small class="d-block mb-3 text-muted">August 2025</small>
+                            <p>Gained real-world project experience in a live learning environment. Applied data science techniques to solve problems, bridging the gap between academic knowledge and industry application.</p>
+                        </div>
+                         <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                            <h4>Data Analyst Intern</h4>
+                            <p class="text-accent mb-1">The Warriors Way (Pantech Solution) | Remote</p>
+                            <small class="d-block mb-3 text-muted">June 2025 - July 2025</small>
+                            <p>Contributed to projects at a leading technical solutions provider. Focused on creating interactive dashboards to improve data visualization and decision-making efficiency for various business cases.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-heading" data-aos="fade-up">Featured Projects</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="card-custom h-100 d-flex flex-column">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">Supermart Grocery Sales</h5>
+                                    <div class="project-links">
+                                        <a href="https://github.com/JITENDRAGAHERWAR03" target="_blank" aria-label="GitHub"><i data-feather="github"></i></a>
+                                    </div>
+                                </div>
+                                <p class="card-text">Analyzed 12,000+ transactions using Python and Tableau to identify product and seasonal sales patterns, proposing inventory optimization strategies.</p>
+                            </div>
+                             <div class="card-footer bg-transparent border-0 mt-auto pt-0">
+                                <ul class="tech-stack-list">
+                                    <li>Python</li><li>Tableau</li><li>Pandas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-custom h-100 d-flex flex-column">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">YouTube Performance Analysis</h5>
+                                     <div class="project-links">
+                                        <a href="https://github.com/JITENDRAGAHERWAR03" target="_blank" aria-label="GitHub"><i data-feather="github"></i></a>
+                                    </div>
+                                </div>
+                                <p class="card-text">Performed regression analysis on video metadata to predict view counts, providing data-driven insights that boosted views by 30%.</p>
+                            </div>
+                             <div class="card-footer bg-transparent border-0 mt-auto pt-0">
+                                <ul class="tech-stack-list">
+                                    <li>Python</li><li>Scikit-Learn</li><li>Seaborn</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-custom h-100 d-flex flex-column">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">Uber Demand Prediction</h5>
+                                     <div class="project-links">
+                                        <a href="https://github.com/JITENDRAGAHERWAR03" target="_blank" aria-label="GitHub"><i data-feather="github"></i></a>
+                                    </div>
+                                </div>
+                                <p class="card-text">Developed a predictive model for Uber trip durations with an R² of 0.85, helping to forecast ride demand and improve operational efficiency.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 mt-auto pt-0">
+                                <ul class="tech-stack-list">
+                                    <li>Python</li><li>Machine Learning</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container text-center">
+                <div data-aos="fade-up">
+                    <h2 class="section-heading mx-auto" style="max-width: 400px;">Get In Touch</h2>
+                    <p class="lead mx-auto mb-4" style="max-width: 600px;">I'm currently seeking new opportunities and my inbox is always open. Whether you have a question, a project idea, or just want to connect, feel free to reach out!</p>
+                    <a href="mailto:jitendragahewar03@gmail.com" class="btn btn-main">Say Hello</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="https://github.com/JITENDRAGAHERWAR03" target="_blank" aria-label="GitHub"><i data-feather="github"></i></a>
+                <a href="https://www.linkedin.com/in/jitendra-gaherwar-892885272" target="_blank" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+                <a href="mailto:jitendragahewar03@gmail.com" aria-label="Email"><i data-feather="mail"></i></a>
+            </div>
+            <p>&copy; 2025 Jitendra Gaherwar. Designed with care.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Activate nav links on scroll
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
